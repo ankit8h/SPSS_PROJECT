@@ -1,49 +1,61 @@
-# SPSS_PROJECT
+Step 1: Data Structure and Variable Setup in SPSS
+
+The initial phase involved meticulously defining the dataset's structure within the SPSS "Variable View."
+
+The setup was implemented as follows:
+●	All variables designated for the analysis (including Fund_names, Three_year_Sharpe_ratio, and Expense_ratio) were uniformly defined as "Numeric" data types.
+●	The "Fund_names" variable was categorized as "Nominal," and Value Labels were applied (e.g., 1.00 assigned to "ICICI PRUDENTIAL LARGE CAP FUNDS") to facilitate the identification of each distinct fund.
+●	Every other variable intended for the subsequent regression analysis was set to the "Scale" measure. 
+
+ <img width="1249" height="245" alt="Screenshot 2025-11-15 103608" src="https://github.com/user-attachments/assets/cade80f1-4db9-4828-aa33-f3b4fc877c16" />
+
+
+Step 2: Data Entry
+With the variables defined, the collected data for the 25 Large Cap funds was entered into the "Data View." Each row represents a single fund (a "case"), and each column represents one of the variables. Step 2: Data Entry and Structuring
+
+Following variable definition, the collected empirical data for the 25 Large Cap mutual funds was systematically entered into the statistical software's "Data View."
+
+This structured process is essential for rigorous statistical analysis. The "Data View" was configured as a matrix:
+●	Rows as Cases: Each row represented a single fund (the observation unit).
+●	Columns as Variables: Each column was reserved for a single metric (e.g., 3-Year Annualized Return).
+
+<img width="1920" height="1200" alt="Screenshot 2025-11-15 093034 - Copy" src="https://github.com/user-attachments/assets/0592e76e-3c42-4d0c-9867-23a40f53770d" />
+<img width="1920" height="1200" alt="Screenshot 2025-11-15 093008 - Copy - Copy" src="https://github.com/user-attachments/assets/8d30e744-07c6-4283-814b-dd073788332c" />
+
+
+  
+
+
+Step 3: Model Specification (Linear Regression)
+
+The core analysis utilized Multiple Linear Regression (accessible via Analyze > Regression > Linear...). The variables were defined as follows:
+●	Dependent Variable: Three_year_Sharpe_ratio
+●	Independent Variables (Predictors):
+○	Expense_ratio
+○	Asset_under_management_in_crore
+○	Fund_age_in_years
+○	Turnover_ratio_in_percentage 
+
+<img width="559" height="471" alt="Screenshot 2025-11-15 093146 - Copy" src="https://github.com/user-attachments/assets/de84a227-306a-45ca-bf7d-27ecc0700a15" />
+
+ Step 4: Output & Interpretation
+After running the analysis, the SPSS Output Viewer generated the key tables. These tables provided the complete statistical findings for the project:
+●	Model Summary: Showed the Adjusted R-Square (0.17), indicating the model's explanatory power.
+●	ANOVA: Showed the overall model's significance (p = 0.02).
+●	Coefficients: Provided the p-values for each individual predictor (identifying AUM as significant) and the VIF scores (confirming no multicollinearity). 
+
+<img width="915" height="414" alt="Screenshot 2025-11-15 101715" src="https://github.com/user-attachments/assets/e2c7e239-cb8c-4ac3-bcac-e008e6b34213" />
+
+Step 5: Interpreting Bivariate Scatterplot
+
+ 
+A Bivariate Scatterplot (created via Graphs > Scatterplot) was used for an initial assessment before developing the complete model. This plot specifically examined the relationship between two variables: 
+the key predictor, Asset_under_management_in_crore, and the outcome, Three_year_Sharpe_ratio. The visual evidence suggested a positive but weak-to-moderate correlation, thereby confirming that AUM was an appropriate variable to include in the regression analysis.
+<img width="841" height="408" alt="Screenshot 2025-11-15 093318" src="https://github.com/user-attachments/assets/f93e9a27-84a7-4dde-aa30-f9bf6c3a369e" />
 
 
 
-Here is a complete summary of your project, from the initial question to the final conclusion.
-This is the "executive summary" of your SPSS project.
-
-1. 🎯 Project Title & Objective
-
-Title: An Analysis of the Factors Affecting the Risk-Adjusted Performance of Indian Large Cap Mutual Funds.
-Objective: The goal was to determine which key, measurable factors have a statistically significant impact on a mutual fund's real-world performance.
-Research Question: "What is the relationship between a fund's 3-Year Sharpe Ratio (its risk-adjusted performance) and its Expense Ratio, Fund Size (AUM), Fund Age, and Turnover Ratio?"
 
 
 
-
-<img width="1368" height="295" alt="Screenshot 2025-11-15 092951" src="https://github.com/user-attachments/assets/ceefc8b7-142e-437a-b73d-2b8fee6f09e8" />
-
-2. 🔬 Methodology & Data
-
-Model: We used a Multiple Linear Regression in SPSS. This is the correct model for predicting a continuous number (like the Sharpe Ratio) based on several input factors.
-Sample: Our dataset consisted of 25 Large Cap (Direct-Growth) equity funds. We focused on one category to ensure an "apples-to-apples" comparison.
-Variables:
-Dependent Variable: Three_year_Sharpe_ratio (This was our "Y" – the outcome we wanted to predict).
-Independent Variables: Expense_ratio, Asset_under_management_in_crore, Fund_age_in_years, Turnover_ratio_in_percentage (These were our "X" factors – our predictors).
-
-3. 📊 Key Statistical Findings (The Results)
-
-This is the main story from your SPSS output.
-1. Is the model useful? Yes.
-The ANOVA table's "Sig." (p-value) was 0.02. Since this is less than 0.05, our overall model is statistically significant. It's not just a random result.
-2. How much does the model explain? 17%.
-The Adjusted R-Square was 0.17. This is a key finding. It means our four variables (expenses, size, age, turnover) can only explain 17% of the variation in a fund's performance.
-3. What factors are significant? Only Fund Size.
-Asset_under_management (AUM) was the only statistically significant predictor (p = 0.05).
-The coefficient was positive, suggesting that funds with a larger AUM tend to have a slightly better risk-adjusted performance.
-4. What factors are NOT significant? Expenses and Turnover.
-Expense_ratio (p = 0.848), Turnover_ratio (p = 0.450), and Fund_age (p = 0.063) were all not statistically significant.
-This is a fascinating insight: for this dataset, paying a lower fee or having a low-turnover manager had no statistically provable effect on performance.
-5. Is the model "healthy"? Yes.
-We checked for multicollinearity. All VIF (Variance Inflation Factor) scores were ~1.3, which is excellent (far below the problem level of 5 or 10). This means our predictors are independent and the results are reliable.
-
-4. 💡 Conclusion & Implications (The "So What?")
-
-The Main Story: Your project's main conclusion is that 83% of a fund's performance (the part not explained by your model) is driven by unmeasured factors. This is primarily the fund manager's individual skill, their specific stock-picking strategy, and market luck.
-What It Means: While a larger Fund Size (AUM) seems to provide a small, significant advantage, the common advice to only focus on low Expense Ratios or low Turnover is not supported by your data. The manager's skill (Alpha) appears to be far more important than these simple metrics.
-Limitations: The biggest limitation is the small sample size (n=25). With a larger sample (e.g., n=100), the small, real-world effect of the Expense Ratio might have become statistically significant. This is a perfect point to discuss in your final report.
-This provides a complete, A-Grade summary of your entire project.
-Would you like me to help you phrase the specific hypotheses for your report (e.g., "Hypothesis 1: A lower Expense Ratio will have a positive impact on the 3-Year Sharpe Ratio")?
+ 
